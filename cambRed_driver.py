@@ -3,7 +3,7 @@ import numpy as np
 from cambRedCall import cambRed
 import matplotlib.pyplot as plt
 
-outName = 'test1_lensing'
+outName = 'test2_lensing'
 templateIni = os.environ['CAMBREDNN_DIR']+'params_lensing.ini'
 log = True
 
@@ -30,7 +30,7 @@ for xpos in range(a):
         
         if i == 0:
             ax[xpos,ypos].plot(x,Cls[:,i]*(4./2./np.pi)/(x*(x+1.0)))
-        elif i <= winNum:
+        elif (i!=0) and (i<= winNum):
             ax[xpos,ypos].plot(x,Cls[:,i]*(2./2./np.pi))
         else:
             ax[xpos,ypos].plot(x,Cls[:,i]/2./np.pi*(x*(x+1.0)))
